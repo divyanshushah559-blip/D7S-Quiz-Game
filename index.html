@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="manifest" href="manifest.json">
 <title>Quiz Challenge</title>
 
 <style>
@@ -2351,6 +2351,15 @@ function nextLevel(){
 }
 
 </script>
-
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+        navigator.serviceWorker.register("./service-worker.js")
+            .catch(function(error) {
+                console.log("Service Worker registration failed:", error);
+            });
+    });
+}
+</script>
 </body>
 </html>
